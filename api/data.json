@@ -1,0 +1,34 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "les misérables",
+      "author": "victor hugo"
+    },
+    {
+      "id": 2,
+      "title": "Don Quixote",
+      "author": "Miguel de Cervantes"
+    },
+    {
+      "title": "title 1",
+      "author": "author 1",
+      "id": 3
+    },
+    {
+      "title": "title 2",
+      "author": "author 2",
+      "id": 4
+    },
+    {
+      "title": "reactive 1",
+      "author": "author X",
+      "id": 5
+    },
+    {
+      "title": "title X",
+      "author": "Author X",
+      "id": 6
+    }
+  ]
+}

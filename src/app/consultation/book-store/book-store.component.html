@@ -1,0 +1,12 @@
+<div *ngIf="selectedBook" class="center">
+  selected book :
+  <app-book [book]="selectedBook"></app-book>
+</div>
+<div class="center">
+  <h3>The list of available books : </h3>
+  <ul>
+    <li *ngFor="let book of books" (click)="display(book)">
+      <app-book [book]="book" [isAnimate]="true" (displayBookEvent)="display($event)"></app-book>
+    </li>
+  </ul>
+</div>

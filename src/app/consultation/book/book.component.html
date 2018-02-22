@@ -1,0 +1,5 @@
+<div *ngIf="book.author">
+  <span appUpperCase (click)="displayBookAction()"> {{book.author}} </span> by <a [routerLink]="['/consultation/book', book.id]">{{book.title}}</a>
+</div>
+
+

@@ -1,0 +1,22 @@
+<h3>Exemple Template Form</h3>
+<!--<form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+  <input placeholder="title" name="title" [(ngModel)]="book.title" required>
+  <input placeholder="author" name="author" [(ngModel)]="book.author" required>
+  <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">Submit</button>
+</form>-->
+
+<section>
+  <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+    <div class="form-group">
+      <label for="inputTitle">Title</label>
+      <input type="text" id="inputTitle" name="inputTitle" class="form-control" placeholder="Enter title" [(ngModel)]="book.title" required>
+      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+    <div class="form-group">
+      <label for="inputAuthor">Author</label>
+      <input type="text" id="inputAuthor" name="inputAuthor" class="form-control" placeholder="Enter author name" [(ngModel)]="book.author" required>
+      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">Submit</button>
+  </form>
+</section>

@@ -1,0 +1,23 @@
+<h3>Exemple Reactive Form</h3>
+<!--<form (ngSubmit)="onSubmit()" [formGroup]="bookForm">
+  <input placeholder="title" name="title" formControlName="title">
+  <input placeholder="author" name="author" formControlName="author">
+  <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">Submit</button>
+</form>-->
+
+
+<section>
+  <form (ngSubmit)="onSubmit()" [formGroup]="bookForm">
+    <div class="form-group">
+      <label for="inputTitle">Title</label>
+      <input type="text" id="inputTitle" name="inputTitle" class="form-control" placeholder="Enter title" formControlName="title">
+      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+    <div class="form-group">
+      <label for="inputAuthor">Author</label>
+      <input type="text" id="inputAuthor" name="inputAuthor" class="form-control" placeholder="Enter author name" formControlName="author">
+      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">Submit</button>
+  </form>
+</section>
