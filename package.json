@@ -4,14 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json --port 4201",
+    "start": "node server.js",
     "start-dev": "ng serve --proxy-config proxy.conf.json --port 4201",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server api/data.json -w",
-    "postinstall": "ng build --aot -prod",
+    "postinstall": "ng build --aot -prod && json-server api/data.json",
     "preinstall": "npm install -g angular-cli && npm install -g json-server"
   },
   "private": true,
