@@ -4,12 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json --port 4201",
+    "start": "node server.js",
+    "start-dev": "ng serve --proxy-config proxy.conf.json --port 4201",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "json-server api/data.json -w"
+    "api": "json-server api/data.json -w",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +26,7 @@
     "@angular/router": "^4.2.4",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
@@ -35,6 +38,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.2.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "json-server": "^0.12.1",
@@ -48,5 +52,9 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.3.3"
+  },
+  "engines": {
+    "node": "6.11.3",
+    "npm": "5.5.1"
   }
 }
