@@ -10,9 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "json-server api/data.json -w",
-    "postinstall": "ng build --aot -prod",
-    "preinstall": "npm install -g angular-cli"
+    "api": "json-server api/data.json -s dist/",
+    "postinstall": "ng build --aot -prod && json-server api/data.json -s dist/",
+    "preinstall": "npm install -g angular-cli && npm install -g json-server"
   },
   "private": true,
   "dependencies": {

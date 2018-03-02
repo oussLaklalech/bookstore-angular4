@@ -13,7 +13,7 @@ app.listen(process.env.PORT || 8080);
 // the port set by the environment variable $PORT
 const port = process.env.PORT || 3000;
 
-const command = `json-server --watch api/data.json --port ${port}`;
+const command = `json-server --watch api/data.json --port ${port} -s dist/`;
 
 exec(command, (err, stdout, stderr) => {
   if (err) {
