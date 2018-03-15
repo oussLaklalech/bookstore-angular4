@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
+import {MatTabsModule} from '@angular/material';
 
 const testPageRoutes: Routes = [
   {
@@ -15,6 +16,7 @@ const testPageRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    MatTabsModule,
     RouterModule.forChild(testPageRoutes)
   ],
   declarations: [HomeComponent]
