@@ -11,7 +11,8 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 const appRoutes: Routes = [
   {path: '', redirectTo: 'consultation', pathMatch: 'full'},
   { path: 'consultation', loadChildren: 'app/consultation/consultation.module#ConsultationModule' },
-  { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule' }
+  { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule' },
+  { path: 'page-test', loadChildren: 'app/page-test/page-test.module#PageTestModule' }
 ];
 @NgModule({
   declarations: [
