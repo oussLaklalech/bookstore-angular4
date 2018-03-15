@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {SharedModule} from './shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
+import {HttpInterceptorService} from './shared/services/http-interceptor/http-interceptor.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'consultation', pathMatch: 'full'},
@@ -21,7 +23,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

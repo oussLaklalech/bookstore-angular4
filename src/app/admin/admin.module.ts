@@ -5,6 +5,8 @@ import {RouterModule, Routes} from '@angular/router';
 import { AddBookComponent } from './add-book/add-book.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AddBookReactiveComponent } from './add-book-reactive/add-book-reactive.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HttpInterceptorService} from '../shared/services/http-interceptor/http-interceptor.service';
 
 const adminRoutes: Routes = [
   {
@@ -23,6 +25,9 @@ const adminRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(adminRoutes)
   ],
-  declarations: [HomeComponent, AddBookComponent, AddBookReactiveComponent]
+  declarations: [HomeComponent, AddBookComponent, AddBookReactiveComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+  ]
 })
 export class AdminModule { }
