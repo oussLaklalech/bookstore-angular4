@@ -6,11 +6,13 @@ import {
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/do';
 import {Router} from '@angular/router';
+import {SpinnerService} from '../../widgets/spinner/spinner.service';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private spinnerService: SpinnerService) {}
 
   /**
    * Intercept.
@@ -19,12 +21,15 @@ export class HttpInterceptorService implements HttpInterceptor {
    * @returns {Observable<HttpEvent<any>>}
    */
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    this.spinnerService.displaySpinner();
     return next.handle(request).do((event: HttpEvent<any>) => {
       if (event instanceof HttpResponse) {
         // do stuff with response if you want
         console.log('interceptor : Appel WS OK');
+        this.spinnerService.hideSpinner();
       }
     }, (err: any) => {
+      this.spinnerService.hideSpinner();
       if (err instanceof HttpErrorResponse) {
         console.log('interceptor : Appel WS failed');
         if (err.status === 404) {

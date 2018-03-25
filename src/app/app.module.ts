@@ -7,6 +7,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpInterceptorService} from './shared/services/http-interceptor/http-interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {SpinnerComponent} from "./shared/widgets/spinner/spinner.component";
+import {SpinnerService} from "./shared/widgets/spinner/spinner.service";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'consultation', pathMatch: 'full'},
@@ -16,7 +18,8 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
+    SpinnerService
   ],
   bootstrap: [AppComponent]
 })
