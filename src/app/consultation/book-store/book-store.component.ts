@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from '../../shared/book';
 import {BookService} from '../../shared/book.service';
+import {ManageAlertService} from '../../shared/services/manage-alert/manage-alert.service';
+import {AlertMessage} from '../../shared/models/AlertMessage';
 
 @Component({
   selector: 'app-book-store',
@@ -11,7 +13,12 @@ export class BookStoreComponent implements OnInit {
 
   books: Book[];
   selectedBook: Book;
-  constructor(private bookService: BookService) { }
+  alertMessage: AlertMessage;
+  constructor(private bookService: BookService, private manageAlertService: ManageAlertService) {
+    manageAlertService.getCurrentMessage().subscribe((msg) => {
+      this.alertMessage = msg;
+    });
+  }
 
   ngOnInit() {
     this.bookService.getBooks().subscribe((books) => {

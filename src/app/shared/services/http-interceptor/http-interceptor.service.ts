@@ -7,12 +7,16 @@ import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/do';
 import {Router} from '@angular/router';
 import {SpinnerService} from '../../widgets/spinner/spinner.service';
+import {ManageAlertService} from '../manage-alert/manage-alert.service';
+import {AppConstants} from '../../constants/AppConstants';
+import {AlertMessage} from '../../models/AlertMessage';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
   constructor(private router: Router,
-              private spinnerService: SpinnerService) {}
+              private spinnerService: SpinnerService,
+              private manageAlertService: ManageAlertService) {}
 
   /**
    * Intercept.
@@ -27,11 +31,13 @@ export class HttpInterceptorService implements HttpInterceptor {
         // do stuff with response if you want
         console.log('interceptor : Appel WS OK');
         this.spinnerService.hideSpinner();
+        this.manageAlertService.changeMessage(new AlertMessage(AppConstants.DEFAULT_MSG_OK, 'success'));
       }
     }, (err: any) => {
       this.spinnerService.hideSpinner();
       if (err instanceof HttpErrorResponse) {
         console.log('interceptor : Appel WS failed');
+        this.manageAlertService.changeMessage(new AlertMessage(AppConstants.DEFAULT_ERROR, 'danger'));
         if (err.status === 404) {
           this.router.navigate(['']);
         } else if (err.status === 504) {

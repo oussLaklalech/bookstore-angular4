@@ -7,8 +7,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from '@angular/router';
 import {HttpInterceptorService} from './shared/services/http-interceptor/http-interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {SpinnerComponent} from "./shared/widgets/spinner/spinner.component";
-import {SpinnerService} from "./shared/widgets/spinner/spinner.service";
+import {SpinnerComponent} from './shared/widgets/spinner/spinner.component';
+import {SpinnerService} from './shared/widgets/spinner/spinner.service';
+import {ManageAlertService} from './shared/services/manage-alert/manage-alert.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'consultation', pathMatch: 'full'},
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
-    SpinnerService
+    SpinnerService,
+    ManageAlertService
   ],
   bootstrap: [AppComponent]
 })
