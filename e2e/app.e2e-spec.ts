@@ -9,6 +9,6 @@ describe('bookstorefomation App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to my book store!');
+    expect(page.getParagraphText()).toEqual('Angular Reference');
   });
 });

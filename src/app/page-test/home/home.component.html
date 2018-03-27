@@ -1,4 +1,22 @@
 <mat-tab-group>
-  <mat-tab label="Tab 1">Content 1</mat-tab>
+  <mat-tab label="Custom PIPE">
+    <ol>
+      <li>
+        Generate new pipe : <strong>ng g pipe my-new-pipe</strong>
+      </li>
+      <li>
+        Add the new pipe to your app module <strong>declarations: [MyNewPipe]</strong>
+      </li>
+      <li>
+        If you want to export your pipe outside of his module :
+        <strong>exports: [MyNewPipe]</strong>
+      </li>
+      <li>
+        And finally in your templates this is how you would use this custom pipe: {{howToUsePipe}}
+        <p><strong>result : {{ 'ceci est un texte en reverse' | reverseString }}</strong></p>
+      </li>
+    </ol>
+
+  </mat-tab>
   <mat-tab label="Tab 2">Content 2</mat-tab>
 </mat-tab-group>
