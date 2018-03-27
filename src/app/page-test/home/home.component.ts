@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  howToUsePipe: string = '{{ \'ceci est un texte en reverse\' | reverseString }}';
+  howToUsePipe = '{{ \'ceci est un texte en reverse\' | reverseString }}';
   constructor() { }
 
   ngOnInit() {
