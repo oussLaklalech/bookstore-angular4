@@ -11,20 +11,9 @@ import {AppConstants} from "../../shared/constants/AppConstants";
 })
 export class AddBookComponent implements OnInit {
 
-  book: Book = new Book('', '');
-  constructor(private bookService: BookService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log(this.book);
-    this.bookService.addBook(this.book).subscribe(() => {
-      this.router.navigate(['/consultation']);
-    });
-  }
-
-  getMessageConfirmation() {
-    return AppConstants.DEFAULT_MSG_OK;
-  }
 }

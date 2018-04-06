@@ -1,13 +1,13 @@
 <section>
-  <form (ngSubmit)="onSubmit()" [formGroup]="bookForm">
+  <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
     <div class="form-group">
       <label for="inputTitle">Title</label>
-      <input type="text" id="inputTitle" name="inputTitle" class="form-control" placeholder="Enter title" formControlName="title">
+      <input type="text" id="inputTitle" name="inputTitle" class="form-control" placeholder="Enter title" [(ngModel)]="book.title" required>
       <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
     </div>
     <div class="form-group">
       <label for="inputAuthor">Author</label>
-      <input type="text" id="inputAuthor" name="inputAuthor" class="form-control" placeholder="Enter author name" formControlName="author">
+      <input type="text" id="inputAuthor" name="inputAuthor" class="form-control" placeholder="Enter author name" [(ngModel)]="book.author" required>
       <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!bookForm.valid">Submit</button>
